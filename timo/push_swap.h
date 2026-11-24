@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/24 14:16:07 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/24 19:10:02 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,14 @@ void	push_front(t_node *node, t_stack *stack);
 void	push_back(t_node *node, t_stack *stack);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_b, t_stack *stack_a);
+void	ra(t_stack *stack_a, int i);
+void	rb(t_stack *stack_b, int i);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a, int i);
+void	rrb(t_stack *stack_b, int i);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack_a, int i);
+void	sb(t_stack *stack_b, int i);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
 #endif
