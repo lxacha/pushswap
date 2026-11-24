@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/24 22:21:45 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/24 22:46:45 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,6 @@ int	ft_atoi(const char *nptr)
 	return ((int)(converted * neg));
 }
 
-
-int	how_many_args(char **argv)
-{
-	int	args = 0;
-	while (argv[args])
-		args++;
-	return args;
-}
-
 int	skip_shit(char *argv)
 {
 	int	true_or_nah;
@@ -86,4 +77,20 @@ int	skip_shit(char *argv)
 
 	}
 
+}
+
+int	how_many_args(char **argv)
+{
+	int	args;
+	int	number_of_valid_args;
+	
+	args = 1;
+	number_of_valid_args = 0;
+	while (argv[args])
+	{
+		if (skip_shit(argv[args]) == FALSE)
+			number_of_valid_args++;
+		args++;
+	}
+	return number_of_valid_args;
 }

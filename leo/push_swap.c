@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 20:59:14 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/24 22:21:29 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/24 22:53:43 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	int	args;
 	
 	index = 1;
-	index_list_ints = 1;
+	index_list_ints = 0;
 	args = 0;
 	if (!argv[1])
 		return 0;
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 			continue ;
 		}
 		numbers[index_list_ints] = ft_atoi(argv[index]);
-		printf("%d \n",numbers[index]);
+		printf("%d \n",numbers[index_list_ints]);
 		index++;
 		index_list_ints++;
 	}
