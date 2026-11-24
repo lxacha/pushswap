@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:59 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/24 01:31:37 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/24 14:15:55 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ static int	is_duplicate(t_stack *stack, t_node *new)
 	return (0);
 }
 
-int	create_stack(int *tab, int size, t_stack *stack)
+int	create_stack(int *tab, t_stack *stack, int size)
 {
 	int		i;
 	t_node	*new;
 
+	
 	i = 0;
 	while (i < size)
 	{

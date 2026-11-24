@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/24 01:16:48 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/24 14:16:07 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+int		create_stack(int *tab, t_stack *stack, int size);
 t_node	*pop_back(t_stack *stack);
 t_node	*pop_front(t_stack *stack);
 void	push_front(t_node *node, t_stack *stack);
 void	push_back(t_node *node, t_stack *stack);
-int		create_stack(int *tab, int size, t_stack *stack);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_b, t_stack *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:29 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/24 02:14:15 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/24 14:24:11 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	push_back(t_node *node, t_stack *stack)
 	if (!stack || !node)
 		return ;
 	node->prev = stack->tail;
-	node->next = NULL;
 	if (stack->tail)
 		stack->tail->next = node;
 	else
@@ -64,6 +63,7 @@ void	push_front(t_node *node, t_stack *stack)
 {
 	if (!stack || !node)
 		return ;
+	node->next = stack->head;
 	if (stack->head)
 		stack->head->prev = node;
 	else

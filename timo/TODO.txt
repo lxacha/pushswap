@@ -1,22 +1,20 @@
 TODO :
-
 _______________________________________________________________________
-fonctions :
-___________
-
+// OK ?
 X new_node
-
 X is_duplicate
-
-X add_front
-X add_back
-X detach_front
-X detach_back
-
 X stack->size : calcul +1 à chaque add et -1 à chaque detach
+X init stack_a et stack_b à NULL
+X creation de stack_a => pour chaque nb : node = new_node(nb) + push_back(stack_a, node) + is_duplicate
+X push_front / push_back / pop_front / pop_back
+X pa & pb
+
+// A vérifier
+
+
+TODO :
+
+free_all(t_stack stack, t_node node) => free tous les nodes prec au node actuel 
 
 get_indice(node, stack) => pour faire remonter un nb : si get_indice(node) < (stack->size / 2) : rotate ; sinon rrotate 
 ________________________________________________________________________
-X init stack_a et stack_b à NULL
-
-X creation de stack_a => pour chaque nb : node = new_node(nb) + push_back(stack_a, node) + is_duplicate
