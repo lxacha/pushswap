@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 20:59:14 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/24 20:42:43 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/24 21:07:52 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,11 @@ int	main(int argc, char **argv)
 		return 0;
 	//printf("\n %d ",args = how_many_args(argv));
 	args = how_many_args(argv);
-	char	number[args];
+	int	numbers[args];
 	while (argv[index])
 	{
-		while (argv[index] <= '9' && argv[index] >= '0')
-		{
-			numbers
-			index_list_ints++;
-			index++;
-		}
+		numbers[index] = ft_atoi(argv[index]);
+		printf("%d \n",numbers[index]);
 		index++;
 	}
 
