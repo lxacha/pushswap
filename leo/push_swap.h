@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:02:46 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/24 22:21:06 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 00:18:59 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 #ifndef FALSE
 #define FALSE 0
 #endif
+
+typedef struct	s_list
+{
+	int	number;
+	struct s_list *next;
+}	t_list
+
 
 static int	is_space(char c);
 static int	skip_start(const char *nptr, int *neg);

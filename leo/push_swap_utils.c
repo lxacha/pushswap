@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/24 22:46:45 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 00:24:57 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,9 @@ int	how_many_args(char **argv)
 		args++;
 	}
 	return number_of_valid_args;
+}
+
+t_list	*from_args_to_list(char **argv)
+{
+
 }
