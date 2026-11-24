@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/24 19:10:02 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/24 22:38:20 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+typedef struct s_count
+{
+	int sa;
+	int sb;
+	int ss;
+	int pa;
+	int pb;
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+	int total;
+}	t_count;
+
 int		create_stack(int *tab, t_stack *stack, int size);
 t_node	*pop_back(t_stack *stack);
 t_node	*pop_front(t_stack *stack);
@@ -47,5 +63,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	sa(t_stack *stack_a, int i);
 void	sb(t_stack *stack_b, int i);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+int		get_indice(t_node *node, t_stack *stack);
+void	simple_algo(t_stack *stack_a, t_stack *stack_b);
 
 #endif
