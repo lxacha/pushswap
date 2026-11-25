@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:02:46 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 21:36:02 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 22:18:25 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ typedef struct	s_node
 }	t_node;
 
 static int	is_space(char c);
-static int	skip_start(const char *nptr, int *neg);
-int	ft_atoi(const char *nptr);
+static long long	skip_start(const char *nptr, long *neg);
+long long	ft_atoi(const char *nptr);
 int	how_many_args(char **argv);
 int	skip_shit(char *argv);
 t_node	*from_args_to_list(char **argv);

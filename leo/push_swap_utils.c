@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 22:02:27 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 22:19:04 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	is_space(char c)
 	return (0);
 }
 // atoi related skips spaces newline carriage return and so on
-static int	skip_start(const char *nptr, int *neg)
+static long long	skip_start(const char *nptr, long *neg)
 {
-	int		i;
+	long long		i;
 
 	i = 0;
 	while (is_space(nptr[i]))
@@ -36,12 +36,12 @@ static int	skip_start(const char *nptr, int *neg)
 	return (i);
 }
 // atoi related skips + - and retains if -
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
 	int		i;
 	int		y;
 	long	converted;
-	int		neg;
+	long		neg;
 
 	neg = 1;
 	y = 1;
@@ -53,7 +53,7 @@ int	ft_atoi(const char *nptr)
 		y = 10;
 		i++;
 	}
-	return ((int)(converted * neg));
+	return (converted * neg);
 }
 // parsing related atoi converts iterating by dozens
 
@@ -140,6 +140,11 @@ t_node	*from_args_to_list(char **argv)
 		{
 			index++;
 			continue ;
+		}
+		if (ft_atoi(argv[index]) >= 2147483647 || ft_atoi(argv[index]) <= -2147483648)
+		{
+			index++;
+			continue;	
 		}
 		append_to_node(&cursor, ft_atoi(argv[index]));
 		index++;
