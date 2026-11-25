@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 07:31:23 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 21:57:29 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,17 @@ int	skip_shit(char *argv)
 {
 	int	true_or_nah;
 	int	index;
+	int	value;
 
-	index = 0;
+	index = 1;
 	true_or_nah = TRUE;
+	value = 0;
 	while(argv[index])
 	{
+		value = ft_atoi(argv); 
+		
+		if (value >= 2147483647 || value <= -2147483648)
+			return (TRUE);
 		if (argv[index] >= '0' && argv[index] <= '9')
 			return (FALSE);
 		if (argv[index] == '+' || argv[index] == '-' || argv[index] == ' ' || (argv[index] >= 9 && argv[index] <= 13))
@@ -80,7 +86,7 @@ int	skip_shit(char *argv)
 
 }
 // parsing related skips initial bullshit and if not valid argument
-/*
+
 int	how_many_args(char **argv)
 {
 	int	args;
@@ -96,28 +102,27 @@ int	how_many_args(char **argv)
 	}
 	return number_of_valid_args;
 }
-*/
-// init parsing related counts how many arguments there should be using skip shit
-t_list	*create_node(int value)
+
+t_node	*create_node(int value)
 {
-	t_list *new_node = malloc(sizeof(t_list));
+	t_node *new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
-		return (t_list *)NULL;
-	new_node->number = value;
+		return (t_node *)NULL;
+	new_node->value = value;
 	new_node->next = NULL;
 	return (new_node);
 }
 // linked list = appends to new node the desired content
-void	append_to_node(t_list **cursor, int value)
+void	append_to_node(t_node **cursor, int value)
 {
-	t_list *new_node = create_node(value);
+	t_node *new_node = create_node(value);
 
 	if (*cursor == NULL) {
 		*cursor = new_node;
 		return;
 	}
 
-	t_list *current = *cursor;
+	t_node *current = *cursor;
 	while (current->next != NULL)
 	{
 		current = current->next;
@@ -126,11 +131,11 @@ void	append_to_node(t_list **cursor, int value)
 
 }
 // manage if head not declared head = new_node with value inside otherwise value is stored to next
-t_list	*from_args_to_list(char **argv)
+t_node	*from_args_to_list(char **argv)
 {
 	int	index;
 	int	args;
-	t_list	*cursor;
+	t_node	*cursor;
 
 	cursor = NULL;	
 	index = 1;
@@ -147,20 +152,42 @@ t_list	*from_args_to_list(char **argv)
 	return cursor;
 }
 
-double	calculate_disorder(t_list *list)
+double	calculate_disorder(t_node *list)
 {
 	double	mistakes;
 	double	total_pairs;
-	t_list	*dup_list;
+	t_node	*dup_list;
 
 	mistakes = 0;
-	total_pairs = 0;
+	total_pairs = 0;double  calculate_disorder(t_node *list)
+{
+        double  mistakes;
+        double  total_pairs;
+        t_node  *dup_list;
+
+        mistakes = 0;
+        total_pairs = 0;
+        while(list->next != NULL)
+        {
+                dup_list = list->next;
+                while (dup_list->next != NULL)
+                {
+                        if (list->value > dup_list->value)
+                                mistakes++;
+                        dup_list = dup_list->next;
+                        total_pairs++;
+                }
+                list = list->next;
+        }
+        return (mistakes / total_pairs);
+}
+ 
 	while(list->next != NULL)
 	{
 		dup_list = list->next;
 		while (dup_list->next != NULL)
 		{
-			if (list->number > dup_list->number)
+			if (list->value > dup_list->value)
 				mistakes++;
 			dup_list = dup_list->next;
 			total_pairs++;
