@@ -6,12 +6,21 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 22:19:04 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 23:58:38 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_strlen(char *a)
+{
+	int	index;
+
+	index = 0;
+	while(a[index] != '\0')
+		index++;
+	return (index);
+}
 
 static int	is_space(char c)
 {
@@ -126,11 +135,56 @@ void	append_to_node(t_node **cursor, int value)
 
 }
 // manage if head not declared head = new_node with value inside otherwise value is stored to next
+
+int	atoi_stop(const char *a)
+{
+	int		i;
+	int		y;
+	long	converted;
+	long		neg;
+
+	neg = 1;
+	y = 1;
+	converted = 0;
+	i = skip_start(a, &neg);
+	while (a[i] >= 48 && a[i] <= 57)
+	{
+		converted = (converted * y) + a[i] - '0';
+		y = 10;
+		i++;
+	}
+	return (i);
+}
+// takes where atoi stops
+char	*re_process(char *a)
+{
+	char	*str_return;
+	int	index_start;
+	int	index_str_return;
+
+	index_start = 0;
+	index_str_return = 0;
+	str_return = malloc(ft_strlen(a) * sizeof(char));	
+	index_start = atoi_stop(a);
+
+	while (a[index_start] != '\0')
+	{
+		str_return[index_str_return] = a[index_start];
+		index_start++;
+		index_str_return++;
+	}
+	str_return[index_str_return] = '\0';
+	return (str_return);
+	
+}
+//takes from where atoi stop and return rest of string
 t_node	*from_args_to_list(char **argv)
 {
 	int	index;
 	int	args;
 	t_node	*cursor;
+	char	*saved;
+
 
 	cursor = NULL;	
 	index = 1;
@@ -147,6 +201,12 @@ t_node	*from_args_to_list(char **argv)
 			continue;	
 		}
 		append_to_node(&cursor, ft_atoi(argv[index]));
+		saved = re_process(argv[index]);
+		while (skip_shit(saved) != TRUE && ft_strlen(saved) != 0)
+		{
+			append_to_node(&cursor, ft_atoi(saved));
+			saved = re_process(saved);
+		}		
 		index++;
 	}
 	return cursor;

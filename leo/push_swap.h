@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:02:46 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 22:18:25 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 23:21:14 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void	append_to_node(t_node **cursor, int value);
 t_node	*create_node(int value);
 double	calculate_disorder(t_node *list);
 int	how_many_args(char **argv);
+int	ft_strlen(char *a);
+int	atoi_stop(const char *a);
+char	*re_process(char *a);
 
 #endif
