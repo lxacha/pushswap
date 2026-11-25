@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 20:59:14 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 00:33:03 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 01:23:34 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ int	main(int argc, char **argv)
 	if (!argv[1])
 		return 0;
 	from_args_to_list(argv);
+
 }

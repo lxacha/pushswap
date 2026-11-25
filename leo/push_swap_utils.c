@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 00:24:57 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 01:36:52 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_space(char c)
 		return (1);
 	return (0);
 }
-
+// atoi related skips spaces newline carriage return and so on
 static int	skip_start(const char *nptr, int *neg)
 {
 	int		i;
@@ -35,7 +35,7 @@ static int	skip_start(const char *nptr, int *neg)
 	}
 	return (i);
 }
-
+// atoi related skips + - and retains if -
 int	ft_atoi(const char *nptr)
 {
 	int		i;
@@ -55,6 +55,7 @@ int	ft_atoi(const char *nptr)
 	}
 	return ((int)(converted * neg));
 }
+// parsing related atoi converts iterating by dozens
 
 int	skip_shit(char *argv)
 {
@@ -78,7 +79,7 @@ int	skip_shit(char *argv)
 	}
 
 }
-
+// parsing related skips initial bullshit and if not valid argument
 int	how_many_args(char **argv)
 {
 	int	args;
@@ -94,8 +95,57 @@ int	how_many_args(char **argv)
 	}
 	return number_of_valid_args;
 }
-
-t_list	*from_args_to_list(char **argv)
+// init parsing related counts how many arguments there should be using skip shit
+t_list	*create_node(int value)
 {
+	t_list *new_node = malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (t_list *)NULL;
+	new_node->number = value;
+	new_node->next = NULL;
+	return (new_node);
+}
+// linked list = appends to new node the desired content
+void	append_to_node(t_list **cursor, int value)
+{
+	t_list *new_node = create_node(value);
+
+	if (*cursor == NULL) {
+		*cursor = new_node;
+		return;
+	}
+
+	t_list *current = *cursor;
+	while (current->next != NULL)
+	{
+		current = current->next;
+	}
+	current->next = new_node;
 
 }
+// manage if head not declared head = new_node with value inside otherwise value is stored to next
+t_list	*from_args_to_list(char **argv)
+{
+	int	index;
+	int	index_list_ints;
+	int	args;
+	t_list	*cursor;
+
+	cursor = NULL;	
+	index = 1;
+	index_list_ints = 0;
+	args = how_many_args(argv);
+	int	numbers[args];
+	while (argv[index])
+	{
+		if (skip_shit(argv[index]) == TRUE)
+		{
+			index++;
+			continue ;
+		}
+		append_to_node(&cursor, ft_atoi(argv[index]));
+		index++;
+	}
+	return cursor;
+}
+
