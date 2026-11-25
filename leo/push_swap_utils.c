@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 04:43:13 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 04:50:47 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ double	calculate_disorder(t_list *list)
 
 	mistakes = 0;
 	total_pairs = 0;
-	while(list->next != NULL);
+	while(list->next != NULL)
 	{
 		if (list->number > list->next->number)
 			mistakes++;
