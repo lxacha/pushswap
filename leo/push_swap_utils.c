@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 21:57:29 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 22:02:27 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,8 @@ int	skip_shit(char *argv)
 
 	index = 1;
 	true_or_nah = TRUE;
-	value = 0;
 	while(argv[index])
 	{
-		value = ft_atoi(argv); 
-		
-		if (value >= 2147483647 || value <= -2147483648)
-			return (TRUE);
 		if (argv[index] >= '0' && argv[index] <= '9')
 			return (FALSE);
 		if (argv[index] == '+' || argv[index] == '-' || argv[index] == ' ' || (argv[index] >= 9 && argv[index] <= 13))
@@ -158,13 +153,6 @@ double	calculate_disorder(t_node *list)
 	double	total_pairs;
 	t_node	*dup_list;
 
-	mistakes = 0;
-	total_pairs = 0;double  calculate_disorder(t_node *list)
-{
-        double  mistakes;
-        double  total_pairs;
-        t_node  *dup_list;
-
         mistakes = 0;
         total_pairs = 0;
         while(list->next != NULL)
@@ -180,19 +168,4 @@ double	calculate_disorder(t_node *list)
                 list = list->next;
         }
         return (mistakes / total_pairs);
-}
- 
-	while(list->next != NULL)
-	{
-		dup_list = list->next;
-		while (dup_list->next != NULL)
-		{
-			if (list->value > dup_list->value)
-				mistakes++;
-			dup_list = dup_list->next;
-			total_pairs++;
-		}
-		list = list->next;
-	}
-	return (mistakes / total_pairs);
 }
