@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:02:46 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 04:04:55 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 04:41:37 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	skip_shit(char *argv);
 t_list	*from_args_to_list(char **argv);
 void	append_to_node(t_list **cursor, int value);
 t_list	*create_node(int value);
-double	calculate_disorder(t_list **list);
+double	calculate_disorder(t_list *list);
 
 #endif

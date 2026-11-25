@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 20:59:14 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 04:09:38 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 04:43:41 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	main(int argc, char **argv)
 	}
 	//printlist
 	*/
-	disorder = calculate_disorder(list);
+	disorder = calculate_disorder(*list);
 }
