@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 01:36:52 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 03:25:29 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	skip_shit(char *argv)
 
 }
 // parsing related skips initial bullshit and if not valid argument
+/*
 int	how_many_args(char **argv)
 {
 	int	args;
@@ -95,6 +96,7 @@ int	how_many_args(char **argv)
 	}
 	return number_of_valid_args;
 }
+*/
 // init parsing related counts how many arguments there should be using skip shit
 t_list	*create_node(int value)
 {
@@ -127,15 +129,11 @@ void	append_to_node(t_list **cursor, int value)
 t_list	*from_args_to_list(char **argv)
 {
 	int	index;
-	int	index_list_ints;
 	int	args;
 	t_list	*cursor;
 
 	cursor = NULL;	
 	index = 1;
-	index_list_ints = 0;
-	args = how_many_args(argv);
-	int	numbers[args];
 	while (argv[index])
 	{
 		if (skip_shit(argv[index]) == TRUE)
@@ -149,3 +147,19 @@ t_list	*from_args_to_list(char **argv)
 	return cursor;
 }
 
+double	calculate_disorder(t_list *list)
+{
+	int	mistakes;
+	int	total_pairs;
+
+	mistakes = 0;
+	total_pairs = 0;
+	while(list->next != NULL);
+	{
+		if (list->number > list->next->number)
+			mistakes++;
+		list = list->next;
+		total_pairs++;
+	}
+	return (mistakes / total_pairs);
+}
