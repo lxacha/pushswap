@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 07:20:45 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/25 07:31:23 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,9 +163,9 @@ double	calculate_disorder(t_list *list)
 			if (list->number > dup_list->number)
 				mistakes++;
 			dup_list = dup_list->next;
+			total_pairs++;
 		}
 		list = list->next;
-		total_pairs++;
 	}
 	return (mistakes / total_pairs);
 }
