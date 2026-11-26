@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/25 19:52:08 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 16:00:01 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_chunk
 	int	range_max;
 }	t_chunk;
 
-int		create_stack(char **argv, t_stack *stack);
+//int		create_stack(char **argv, t_stack *stack);
 t_node	*pop_back(t_stack *stack);
 t_node	*pop_front(t_stack *stack);
 void	push_front(t_node *node, t_stack *stack);
@@ -81,13 +81,25 @@ void	sb(t_stack *stack_b, int i);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 int		get_position(t_node *node, t_stack *stack);
 void	simple_algo(t_stack *stack_a, t_stack *stack_b);
+void	free_all(t_stack *stack);
+t_node	*new_node(int nb, t_stack *stack);
+int		is_duplicate(t_stack *stack, t_node *new);
+void	get_rank(t_stack *stack);
 
-int	ft_atoi(const char *nptr);
-int	how_many_args(char **argv);
-int	skip_shit(char *argv);
-//t_list	*from_args_to_list(char **argv);
-//void	append_to_node(t_list **cursor, int value);
-//t_list	*create_node(int value);
-//double	calculate_disorder(t_list *list);
+long long	ft_atoi(const char *nptr);
+int			how_many_args(char **argv);
+int			skip_shit(char *argv);
+int			how_many_args(char **argv);
+int			ft_strlen(char *a);
+int			atoi_stop(const char *a);
+char		*re_process(char *a);
+void		from_args_to_list(char **argv, t_stack *stack);
+// double	calculate_disorder(t_list *list);
+
+// int	*linked_to_list(t_list **a, int nb_args);
+// t_list	*from_args_to_list(char **argv);
+// void	append_to_node(t_list **cursor, int value);
+// t_list	*create_node(int value);
+
 
 #endif
