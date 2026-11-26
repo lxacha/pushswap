@@ -1,20 +1,30 @@
 TODO :
 _______________________________________________________________________
 // OK ?
-X new_node
-X is_duplicate
-X stack->size : calcul +1 à chaque add et -1 à chaque detach
-X init stack_a et stack_b à NULL
-X creation de stack_a => pour chaque nb : node = new_node(nb) + push_back(stack_a, node) + is_duplicate
-X push_front / push_back / pop_front / pop_back
-X pa & pb
 
 // A vérifier
 
 
 TODO :
 
-free_all(t_stack stack, t_node node) => free tous les nodes prec au node actuel 
-
-get_indice(node, stack) => pour faire remonter un nb : si get_indice(node) < (stack->size / 2) : rotate ; sinon rrotate 
+fonction error() ?
+1 seule liste chainée => fusion create_stack & 
 ________________________________________________________________________
+BUTTERFLY :
+-----------
+X get_ranks OK
+X taille chunks (NEED TESTS POUR OPTI)
+
+while (stack_a->head != NULL)
+while (i < end)
+déterminer start ; end ; mid (= taille chunk / 2)
+start = 0 & end = start + taille chunk
+
+rotate until stack_a->head between start et end
+if > mid => envoyer en haut de b ; si < mid => envoyer en bas
+i++
+
+quand i = end
+    => re-boucle avec start = end puis end = start + size
+
+une fois stack_a vide => get_max(stack_a) & (ra/rra) + pa
