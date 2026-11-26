@@ -3,17 +3,25 @@ _______________________________________________________________________
 // OK ?
 
 // A vérifier
-
+- "If no parameters are specified, the program must not display anything and give the prompt back." => OK
 
 TODO :
 
 fonction error() ?
-1 seule liste chainée => fusion create_stack & 
+fonction get_max (add with get_min into get_min_max.c (+ is_bottom ?))
+	=> récupérer rank ?
+
+typedef enum ?
+
+1 seule liste chainée => fusion create_stack & from_args_to_list
+1 seul header
+parsing :
+- 2 arguments ? / très gd nb
 ________________________________________________________________________
 BUTTERFLY :
 -----------
 X get_ranks OK
-X taille chunks (NEED TESTS POUR OPTI)
+V taille chunks (NEED TESTS POUR OPTI)
 
 while (stack_a->head != NULL)
 while (i < end)
