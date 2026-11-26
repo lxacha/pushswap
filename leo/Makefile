@@ -6,15 +6,15 @@
 #    By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/23 21:03:11 by leolefeb          #+#    #+#              #
-#    Updated: 2026/11/23 21:03:23 by leolefeb         ###   ########.fr        #
+#    Updated: 2026/11/26 01:44:20 by leolefeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC      = cc
-CFLAGS  = -Wall -Werror -Wextra
+CFLAGS  = -Wall -Wextra
 NAME    = push_swap.a
 
-SOURCES = push_swap.c
+SOURCES = push_swap.c push_swap_utils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

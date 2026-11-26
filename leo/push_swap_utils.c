@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 23:58:38 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/26 02:08:20 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int	skip_shit(char *argv)
 	int	index;
 	int	value;
 
-	index = 1;
+	index = 0;
 	true_or_nah = TRUE;
-	while(argv[index])
+	while(argv[index] != '\0')
 	{
 		if (argv[index] >= '0' && argv[index] <= '9')
 			return (FALSE);
@@ -87,7 +87,7 @@ int	skip_shit(char *argv)
 			return (TRUE);
 
 	}
-
+	return (TRUE);
 }
 // parsing related skips initial bullshit and if not valid argument
 
@@ -204,6 +204,8 @@ t_node	*from_args_to_list(char **argv)
 		saved = re_process(argv[index]);
 		while (skip_shit(saved) != TRUE && ft_strlen(saved) != 0)
 		{
+			if (skip_shit(saved) == TRUE)
+				break ;
 			append_to_node(&cursor, ft_atoi(saved));
 			saved = re_process(saved);
 		}		

@@ -6,7 +6,7 @@
 /*   By: leolefeb <leolefeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 20:59:14 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/25 21:38:15 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/26 01:39:43 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	disorder = 0;
 	list = malloc(how_many_args(argv) * sizeof(t_node));
-	if (!argv[1])
+	if (!argv[1] || argc == 1)
 		return 0;
 	(*list) = from_args_to_list(argv);	
 	
