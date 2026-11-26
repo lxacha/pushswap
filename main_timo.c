@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 23:51:35 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 21:37:53 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 23:51:13 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(int argc , char **argv)
 {
-	double  disorder;
-	int	nb_args;
+	// double  disorder;
+	// int	nb_args;
 	t_count count;
 	
-	nb_args = how_many_args(argv) * 10;
-    disorder = 0;
+	// nb_args = how_many_args(argv) * 10;
+    // disorder = 0;
 	if (!argv[1] || argc == 1)
 			return 0;
 
@@ -35,18 +35,18 @@ int	main(int argc , char **argv)
 	from_args_to_list(argv, &stack_a);
 
 	t_node	*test_a;
-	t_node	*test_b;
+	// t_node	*test_b;
 	
-	//butterfly(&stack_a, &stack_b, &count);
-	simple_algo(&stack_a, &stack_b, &count);
+	butterfly(&stack_a, &stack_b, &count);
+	// simple_algo(&stack_a, &stack_b, &count);
 	test_a = stack_a.head;
-	test_b = stack_b.head;
+	// test_b = stack_b.head;
 	calcul_total_ops(&count);
 	printf("Stack A :\n");
 	while (test_a)
 	{
 		printf("Value :%d\n", test_a->value);
-		printf("Rank :%d\n", test_a->rank);
+		// printf("Rank :%d\n", test_a->rank);
 		test_a = test_a->next;
 	}
 	printf("Tête : %d\nQueue : %d\nTaille : %d\n\n", stack_a.head->value, stack_a.tail->value, stack_a.size);

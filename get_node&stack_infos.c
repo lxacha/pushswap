@@ -80,9 +80,9 @@ t_node	*get_max(t_stack *stack)
 	return (max);
 }
 
-int	is_bottom(t_node *min, t_stack *stack)
+int	is_bottom(t_node *node, t_stack *stack)
 {
-	if (get_position(min, stack) > (stack->size / 2))
+	if (get_position(node, stack) > (stack->size / 2))
 		return (1);
 	return (0);
 }

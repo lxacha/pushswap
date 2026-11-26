@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:15:36 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 21:35:51 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 23:46:54 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 static int chunk_size(t_stack *stack)
 {
 	int sqrt;
-	int size;
 
 	sqrt = 1;
-	size = 0;
 	while (sqrt * sqrt <= stack->size)
 		sqrt++;
-	size = sqrt; // A VERIFIER : 2*sqrt ? 1.5*sqrt ? need tests for opti
 	return (sqrt);
 }
 
@@ -32,6 +29,7 @@ void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count)
 	int	mid;
 	int size;
 	int	i;
+	t_node *tmp;
 
 	i = 1;
 	size = chunk_size(stack_a);
@@ -39,14 +37,14 @@ void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count)
 	{
 		start = i;
 		end = start + size;
-		mid = (end - start) / 2;
-		while (i < end)
+		mid = start + size / 2;
+		while (i <= end && stack_a->head != NULL)
 		{
-			if (stack_a->head->rank >= start && stack_a->head->rank < end)
+			if (stack_a->head->rank >= start && stack_a->head->rank <= end)
 			{
-				pa(stack_a, stack_b, count);
+				pb(stack_a, stack_b, count);
 				i++;
-				if (stack_a->head->rank < mid)
+				if (stack_b->head->rank < mid)
 					rb(stack_b, 1, count);
 			}
 			else
@@ -55,13 +53,14 @@ void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count)
 	}
 	while (stack_b->head != NULL)
 	{
-		if (is_bottom(get_max(stack_b), stack_b))
-			while (stack_b->head->value != get_max(stack_b)->value)
+		tmp = get_max(stack_b);
+		if (is_bottom(tmp, stack_b))
+			while (stack_b->head->value != tmp->value)
 				rrb(stack_b, 1, count);
 		else
-			while (stack_b->head->value != get_max(stack_b)->value)
-				rrb(stack_b, 1, count);
-		pb(stack_b, stack_a, count);
+			while (stack_b->head->value != tmp->value)
+				rb(stack_b, 1, count);
+		pa(stack_b, stack_a, count);
 	}
 }
 
