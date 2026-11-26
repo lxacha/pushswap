@@ -6,34 +6,11 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 20:41:03 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 17:34:58 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 18:10:27 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_node	*get_min(t_stack *stack_a)
-{
-	t_node	*node;
-	t_node	*min;
-
-	node = stack_a->head;
-	min = stack_a->head;
-	while (node)
-	{
-		if (node->value < min->value)
-			min = node;
-		node = node->next;
-	}
-	return (min);
-}
-
-static int	is_bottom(t_node *min, t_stack *stack)
-{
-	if (get_position(min, stack) > (stack->size / 2))
-		return (1);
-	return (0);
-}
 
 void	simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count)
 {

@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:59 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 15:51:33 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 18:09:59 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,49 +60,3 @@ int	is_duplicate(t_stack *stack, t_node *new)
 	}
 	return (0);
 }
-
-void	get_rank(t_stack *stack)
-{
-	t_node	*node;
-	t_node	*cmp;
-
-	cmp = stack->head;
-	node = stack->head;
-	while (node)
-	{
-		while (cmp)
-		{
-			if (cmp->value < node->value)
-				node->rank++;
-			cmp = cmp->next;
-		}
-		cmp = stack->head;
-		node = node->next;
-	}
-}
-
-// int	create_stack(char **argv, t_stack *stack)
-// {
-// 	t_node	*new;
-// 	int		index;
-
-// 	index = 1;
-// 	while (argv[index])
-// 	{
-// 		if (skip_shit(argv[index]) == TRUE)
-// 		{
-// 			index++;
-// 			continue ;
-// 		}
-// 		new = new_node(ft_atoi(argv[index]), stack);
-// 		if (is_duplicate(stack, new))
-// 		{
-// 			printf("Error\n");
-// 			return (0);
-// 		}
-// 		push_back(new, stack);
-// 		index++;
-// 	}
-// 	get_rank(stack);
-// 	return (1);
-// }

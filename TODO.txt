@@ -7,13 +7,11 @@ _______________________________________________________________________
 
 TODO :
 
-fonction error() ?
-fonction get_max (add with get_min into get_min_max.c (+ is_bottom ?))
-	=> récupérer rank ?
+X fonction get_max (add with get_min into get_min_max.c (+ is_bottom ?)) + récupérer rank 
+X include count
 
 typedef enum ?
-
-X include count
+fonction error() ?
 ________________________________________________________________________
 BUTTERFLY :
 -----------

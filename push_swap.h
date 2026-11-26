@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 17:58:02 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 20:54:55 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,17 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, t_count *count);
 void	sa(t_stack *stack_a, int i, t_count *count);
 void	sb(t_stack *stack_b, int i, t_count *count);
 void	ss(t_stack *stack_a, t_stack *stack_b, t_count *count);
-int		get_position(t_node *node, t_stack *stack);
-void	simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count);
 void	free_all(t_stack *stack);
 t_node	*new_node(int nb, t_stack *stack);
 int		is_duplicate(t_stack *stack, t_node *new);
+int		get_position(t_node *node, t_stack *stack);
 void	get_rank(t_stack *stack);
+t_node	*get_min(t_stack *stack);
+t_node	*get_max(t_stack *stack);
+int		is_bottom(t_node *min, t_stack *stack);
 void	calcul_total_ops(t_count *count);
+void	simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count);
+void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count);
 
 long long	ft_atoi(const char *nptr);
 int			how_many_args(char **argv);
@@ -101,6 +105,5 @@ void		from_args_to_list(char **argv, t_stack *stack);
 // t_list	*from_args_to_list(char **argv);
 // void	append_to_node(t_list **cursor, int value);
 // t_list	*create_node(int value);
-
 
 #endif

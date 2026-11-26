@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/26 16:02:48 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 21:11:25 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	skip_shit(char *argv)
 {
 	int	true_or_nah;
 	int	index;
-	int	value;
+	//int	value;
 
 	index = 0;
 	true_or_nah = TRUE;
