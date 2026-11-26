@@ -6,13 +6,13 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 13:40:10 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 14:07:03 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 17:32:15 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack_a, int i)
+void	sa(t_stack *stack_a, int i, t_count *count)
 {
 	t_node *node;
 
@@ -25,10 +25,13 @@ void	sa(t_stack *stack_a, int i)
 	stack_a->head->next = node;
 	stack_a->head->prev = NULL;
 	if (i > 0)
+	{
 		printf("sa\n");
+		count->sa++;
+	}
 }
 
-void	sb(t_stack *stack_b, int i)
+void	sb(t_stack *stack_b, int i, t_count *count)
 {
 	t_node *node;
 
@@ -41,12 +44,16 @@ void	sb(t_stack *stack_b, int i)
 	stack_b->head->next = node;
 	stack_b->head->prev = NULL;
 	if (i > 0)
+	{
 		printf("sb\n");
+		count->sb++;
+	}
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b, t_count *count)
 {
-	sa(stack_a, 0);
-	sb(stack_b, 0);
+	sa(stack_a, 0, count);
+	sb(stack_b, 0, count);
 	printf("ss\n");
+	count->ss++;
 }

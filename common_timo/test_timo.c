@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 23:51:35 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 16:07:58 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 17:59:31 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,14 @@ int	main(int argc , char **argv)
 {
 	double  disorder;
 	int	nb_args;
-	int	*tab;
-
+	t_count count;
+	
 	nb_args = how_many_args(argv) * 10;
     disorder = 0;
 	if (!argv[1] || argc == 1)
 			return 0;
-        
+
     // disorder = calculate_disorder(*list);      
-/*
-	int tab[100] = {
-    -13, 24, -40, -3, 34, -30, 7, 44, -20, 17,
-    -47, -10, 27, -37, 0, 37, -27, 10, 47, -17,
-    20, -44, -7, 30, -34, 3, 40, -24, 13, 50,
-    -14, 23, -41, -4, 33, -31, 6, 43, -21, 16,
-    -48, -11, 26, -38, -1, 36, -28, 9, 46, -18,
-    19, -45, -8, 29, -35, 2, 39, -25, 12, 49,
-    -15, 22, -42, -5, 32, -32, 5, 42, -22, 15,
-    -49, -12, 25, -39, -2, 35, -29, 8, 45, -19,
-    18, -46, -9, 28, -36, 1, 38, -26, 11, 48,
-    -16, 21, -43, -6, 31, -33, 4, 41, -23, 14
-};
-*/
-	//int tab2[3] = {11, 12, 13};
-	int size1;
-	//int size2;
 	//
 	t_stack	stack_a; 
 	t_stack	stack_b;
@@ -48,21 +31,17 @@ int	main(int argc , char **argv)
 
 	stack_a = (t_stack){NULL, NULL, 0};
 	stack_b = (t_stack){NULL, NULL, 0};
-	size1 = sizeof(tab) / sizeof(tab[0]); // A garder pour calculer taille tab
-	//size2 = sizeof(tab2) / sizeof(tab2[0]);
-	// if (!create_stack(tab, &stack_a, size1))
-	// 	return (0);
-	//if (!create_stack(tab2, &stack_b, size2))
-	//	return (0);
+	count = (t_count){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	from_args_to_list(argv, &stack_a);
 
 	t_node	*test_a;
 	t_node	*test_b;
 	
-	simple_algo(&stack_a, &stack_b);
+	simple_algo(&stack_a, &stack_b, &count);
 
 	test_a = stack_a.head;
 	test_b = stack_b.head;
+	calcul_total_ops(&count);
 	printf("Stack A :\n");
 	while (test_a)
 	{
@@ -70,7 +49,7 @@ int	main(int argc , char **argv)
 		test_a = test_a->next;
 	}
 	printf("Tête : %d\nQueue : %d\nTaille : %d\n\n", stack_a.head->value, stack_a.tail->value, stack_a.size);
-	printf("Stack B :\n");
+	printf("Count :\nsa : %d\n sb : %d\n ss : %d\n pa : %d\n pb : %d\n ra : %d\n rb : %d\n rr : %d\n rra : %d\n rrb : %d\n rrr : %d\nTotal : %d\n", count.sa, count.sb, count.ss, count.pa, count.pb, count.ra, count.rb, count.rr, count.rra, count.rrb, count.rrr, count.total);
 	//while (test_b)
 	//{
 	//	printf("%d\n", test_b->value);

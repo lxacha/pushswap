@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 20:41:03 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/25 19:14:30 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/26 17:34:58 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	is_bottom(t_node *min, t_stack *stack)
 	return (0);
 }
 
-void	simple_algo(t_stack *stack_a, t_stack *stack_b)
+void	simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count)
 {
 	t_node	*min;
 	
@@ -44,12 +44,12 @@ void	simple_algo(t_stack *stack_a, t_stack *stack_b)
 		min = get_min(stack_a);
 		if (is_bottom(min, stack_a))
 			while (stack_a->head != min)
-				rra(stack_a, 1);
+				rra(stack_a, 1, count);
 		else
 			while (stack_a->head != min)
-				ra(stack_a, 1);
-		pa(stack_a, stack_b);
+				ra(stack_a, 1, count);
+		pa(stack_a, stack_b, count);
 	}
 	while (stack_b && stack_b->head)
-		pb(stack_b, stack_a);
+		pb(stack_b, stack_a, count);
 }
