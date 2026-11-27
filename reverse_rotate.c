@@ -6,11 +6,12 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 13:40:04 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 17:33:57 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 14:42:34 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	rra(t_stack *stack_a, int i, t_count *count)
 {
 	push_front(pop_back(stack_a), stack_a);

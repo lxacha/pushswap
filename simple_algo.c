@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 20:41:03 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 23:32:51 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 14:43:07 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count)
 {
 	t_node	*min;
-	
+
 	while (stack_a && stack_a->head)
 	{
 		min = get_min(stack_a);

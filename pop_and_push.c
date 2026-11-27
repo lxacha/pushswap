@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:29 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/25 14:09:23 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 14:40:40 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_node	*pop_back(t_stack *stack)
 {
-	t_node *node;
-	
+	t_node	*node;
+
 	if (!stack || !stack->tail)
 		return (NULL);
 	node = stack->tail;
@@ -31,8 +31,8 @@ t_node	*pop_back(t_stack *stack)
 
 t_node	*pop_front(t_stack *stack)
 {
-	t_node *node;
-	
+	t_node	*node;
+
 	if (!stack || !stack->head)
 		return (NULL);
 	node = stack->head;

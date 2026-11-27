@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_position.c                                       :+:      :+:    :+:   */
+/*   get_stack_infos.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 21:26:38 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/25 16:20:54 by timbert          ###   ########.fr       */
+/*   Created: 2026/11/27 14:39:07 by timbert           #+#    #+#             */
+/*   Updated: 2026/11/27 14:39:36 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	get_position(t_node *node, t_stack *stack)
 {
-	int i;
-	t_node *tmp;
+	int		i;
+	t_node	*tmp;
 
 	i = 1;
 	tmp = stack->head;
@@ -46,7 +46,6 @@ void	get_rank(t_stack *stack)
 		node = node->next;
 	}
 }
-
 
 t_node	*get_min(t_stack *stack)
 {

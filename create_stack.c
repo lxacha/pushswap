@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:59 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 18:09:59 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 14:40:08 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_all(t_stack *stack)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = stack->head;
 	while (node)
