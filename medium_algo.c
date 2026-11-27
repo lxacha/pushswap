@@ -6,20 +6,21 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:15:36 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/26 23:46:54 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 01:05:54 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int chunk_size(t_stack *stack)
+static int	square_root(t_stack *stack)
 {
-	int sqrt;
+	int	sqrt;
 
 	sqrt = 1;
 	while (sqrt * sqrt <= stack->size)
 		sqrt++;
-	return (sqrt);
+	
+	return (sqrt * 2);
 }
 
 void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count)
@@ -32,7 +33,7 @@ void	butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count)
 	t_node *tmp;
 
 	i = 1;
-	size = chunk_size(stack_a);
+	size = square_root(stack_a);
 	while (stack_a->head != NULL)
 	{
 		start = i;
