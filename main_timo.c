@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 23:51:35 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 01:52:02 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 22:12:08 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ int	main(int argc , char **argv)
 	stack_b = (t_stack){NULL, NULL, 0};
 	count = (t_count){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	from_args_to_list(argv, &stack_a);
-
+	if (is_there_duplicates(&stack_a) == TRUE)
+	{
+		error("there are duplicates");
+		return (0);	
+	}
 	t_node	*test_a;
 	// t_node	*test_b;
 	
 	butterfly(&stack_a, &stack_b, &count);
-	// simple_algo(&stack_a, &stack_b, &count);
+	//simple_algo(&stack_a, &stack_b, &count);
 	test_a = stack_a.head;
 	calcul_total_ops(&count);
 	printf("Stack A :\n");

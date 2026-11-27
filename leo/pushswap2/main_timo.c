@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 23:51:35 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 18:32:55 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/27 22:08:59 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ int	main(int argc , char **argv)
 
     // disorder = calculate_disorder(*list);      
 	//
-	t_stack	stack_a; 
+	t_stack	stack_a;
 	t_stack	stack_b;
+	t_stack duplicate_stack_a;
 
 	stack_a = (t_stack){NULL, NULL, 0};
 	stack_b = (t_stack){NULL, NULL, 0};
 	count = (t_count){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	from_args_to_list(argv, &stack_a);
+	duplicate_stack_a = stack_a;
+	if (is_there_duplicates(&stack_a) == TRUE)
+	{
+		error("there are duplicates");
+		return (0);
+	}
 
 	t_node	*test_a;
 	// t_node	*test_b;
@@ -41,12 +48,12 @@ int	main(int argc , char **argv)
 	test_a = stack_a.head;
 	calcul_total_ops(&count);
 	printf("Stack A :\n");
-	// while (test_a)
-	// {
-	// 	printf("Value :%d\n", test_a->value);
-	// 	printf("Rank :%d\n", test_a->rank);
-	// 	test_a = test_a->next;
-	// }
+	while (test_a)
+	{
+	 	printf("Value :%d\n", test_a->value);
+		//printf("Rank :%d\n", test_a->rank);
+	 	test_a = test_a->next;
+	}
 	printf("Tête : %d\nQueue : %d\nTaille : %d\n\n", stack_a.head->value, stack_a.tail->value, stack_a.size);
 	printf("Count :\n sa : %d\n sb : %d\n ss : %d\n pa : %d\n pb : %d\n ra : %d\n rb : %d\n rr : %d\n rra : %d\n rrb : %d\n rrr : %d\nTotal : %d\n", count.sa, count.sb, count.ss, count.pa, count.pb, count.ra, count.rb, count.rr, count.rra, count.rrb, count.rrr, count.total);
 }

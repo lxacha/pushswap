@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:41:53 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 20:15:09 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void		calcul_total_ops(t_count *count);
 void		simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count);
 void		butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count);
 
+int		is_there_duplicates(t_stack *stack_a);
 long long	ft_atoi(const char *nptr);
 int			how_many_args(char **argv);
 int			skip_shit(char *argv);
@@ -99,6 +100,8 @@ int			ft_strlen(char *a);
 int			atoi_stop(const char *a);
 char		*re_process(char *a);
 void		from_args_to_list(char **argv, t_stack *stack);
+
+void		error(char *a);
 // double	calculate_disorder(t_list *list);
 
 // int	*linked_to_list(t_list **a, int nb_args);

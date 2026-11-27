@@ -6,11 +6,40 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/27 18:38:27 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/27 21:49:25 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    error(char *a)
+{
+        printf("%s\n",a);
+}
+
+int     is_there_duplicates(t_stack *stack_a)
+{
+        t_node *cursor1;
+        t_node *cursor2;
+
+        cursor1 = stack_a->head;
+        cursor2 = stack_a->head->next;
+        while(cursor1 && cursor1->next)
+        {
+                while (cursor2)
+                {
+                        if (cursor2->value == cursor1->value)
+                        {
+                                return (TRUE);
+                        }
+                        cursor2 = cursor2->next;
+                }
+                cursor1 = cursor1->next;
+                cursor2 = cursor1->next;
+        }
+        return (FALSE);
+}
+
 
 int	ft_strlen(char *a)
 {

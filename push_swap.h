@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:41:53 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 21:52:41 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ int			ft_strlen(char *a);
 int			atoi_stop(const char *a);
 char		*re_process(char *a);
 void		from_args_to_list(char **argv, t_stack *stack);
+int             is_there_duplicates(t_stack *stack_a);
+void            error(char *a);
+
 // double	calculate_disorder(t_list *list);
 
 // int	*linked_to_list(t_list **a, int nb_args);
