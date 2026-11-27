@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/26 21:11:25 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/27 18:38:27 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,10 @@ long long	ft_atoi(const char *nptr)
 
 int	skip_shit(char *argv)
 {
-	int	true_or_nah;
 	int	index;
 	//int	value;
 
 	index = 0;
-	true_or_nah = TRUE;
 	while(argv[index] != '\0')
 	{
 		if (argv[index] >= '0' && argv[index] <= '9')
