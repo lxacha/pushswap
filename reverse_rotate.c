@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 13:40:04 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:42:34 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/28 12:03:44 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 void	rra(t_stack *stack_a, int i, t_count *count)
 {
-	push_front(pop_back(stack_a), stack_a);
-	if (i > 0)
+	if (stack_a->head->next != NULL)
 	{
-		printf("rra\n");
-		count->rra++;
+		push_front(pop_back(stack_a), stack_a);
+		if (i > 0)
+		{
+			printf("rra\n");
+			count->rra++;
+		}
 	}
 }
 
 void	rrb(t_stack *stack_b, int i, t_count *count)
 {
-	push_front(pop_back(stack_b), stack_b);
-	if (i > 0)
+	if (stack_b->head->next != NULL)
 	{
-		printf("rrb\n");
-		count->rrb++;
+		push_front(pop_back(stack_b), stack_b);
+		if (i > 0)
+		{
+			printf("rrb\n");
+			count->rrb++;
+		}
 	}
 }
 

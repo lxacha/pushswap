@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/28 02:30:13 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/28 13:44:40 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,6 @@ int	from_args_to_list(char **argv, t_stack *stack)
 			free(save_saved);
 			save_saved = saved;
 			saved = re_process(saved);
-			
 		}
 		index++;
 		free(save_saved);

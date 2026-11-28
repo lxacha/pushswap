@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:15:36 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:36:41 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/28 13:28:36 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	size_chunk(t_stack *stack)
 	int	sqrt;
 
 	sqrt = 1;
-	while (sqrt * sqrt <= stack->size)
+	while (sqrt * sqrt < stack->size)
 		sqrt++;
-	return (sqrt * 2);
+	return (sqrt * 22 / 10);
 }
 
 static void	build_butterfly(t_stack *stack_a, t_stack *stack_b,
@@ -43,10 +43,18 @@ static void	build_butterfly(t_stack *stack_a, t_stack *stack_b,
 				pb(stack_a, stack_b, count);
 				i++;
 				if (stack_b->head->rank < mid)
-					rb(stack_b, 1, count);
+				{
+					if (stack_a->head != NULL && !(stack_a->head->rank >= start && stack_a->head->rank <= end))
+						rr(stack_a, stack_b, count);
+					else
+						rb(stack_b, 1, count);
+				}
 			}
 			else
-				ra(stack_a, 1, count);
+				if (is_bottom_range(stack_a, start, end))
+					rra(stack_a, 1, count);
+				else
+					ra(stack_a, 1, count);
 		}
 	}
 }

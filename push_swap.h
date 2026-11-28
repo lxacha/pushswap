@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/28 00:36:23 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/28 12:40:38 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct s_chunk
 	int	range_max;
 }	t_chunk;
 
-//int		create_stack(char **argv, t_stack *stack);
 t_node		*pop_back(t_stack *stack);
 t_node		*pop_front(t_stack *stack);
 void		push_front(t_node *node, t_stack *stack);
@@ -87,9 +86,10 @@ void		get_rank(t_stack *stack);
 t_node		*get_min(t_stack *stack);
 t_node		*get_max(t_stack *stack);
 int			is_bottom(t_node *min, t_stack *stack);
+int			is_bottom_range(t_stack *stack, int min, int max);
 void		calcul_total_ops(t_count *count);
 void		simple_algo(t_stack *stack_a, t_stack *stack_b, t_count *count);
-void		butterfly(t_stack *stack_a, t_stack *stack_b, t_count *count);
+void		medium_algo(t_stack *stack_a, t_stack *stack_b, t_count *count);
 
 long long	ft_atoi(const char *nptr);
 int			how_many_args(char **argv);
@@ -98,9 +98,9 @@ int			how_many_args(char **argv);
 int			ft_strlen(char *a);
 int			atoi_stop(const char *a);
 char		*re_process(char *a);
-int		from_args_to_list(char **argv, t_stack *stack);
-int             is_there_duplicates(t_stack *stack_a);
-void            error(char *a);
+int			from_args_to_list(char **argv, t_stack *stack);
+int			is_there_duplicates(t_stack *stack_a);
+void		error(char *a);
 
 // double	calculate_disorder(t_list *list);
 

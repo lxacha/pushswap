@@ -2,4 +2,4 @@
 *.swp
 args.txt
 a.out
-push_swap
+push_swap*.gch

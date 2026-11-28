@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/27 14:39:07 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:39:36 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/28 12:51:04 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,30 @@ int	is_bottom(t_node *node, t_stack *stack)
 	if (get_position(node, stack) > (stack->size / 2))
 		return (1);
 	return (0);
+}
+
+int	is_bottom_range(t_stack *stack, int min, int max)
+{
+	t_node	*tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	tmp = stack->head;
+	while (tmp != NULL && tmp->rank <= min && tmp->rank >= max)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	tmp = stack->tail;
+	while (tmp != NULL && tmp->rank <= min && tmp->rank >= max)
+	{
+		tmp = tmp->prev;
+		j++;
+	}
+	if (j < i)
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:37:59 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 14:40:08 by timbert          ###   ########.fr       */
+/*   Updated: 2026/11/28 13:37:13 by timbert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ void	free_all(t_stack *stack)
 {
 	t_node	*node;
 
-	node = stack->head;
-	while (node)
+	if (stack->head != NULL)
 	{
-		stack->head = node->next;
-		free (node);
 		node = stack->head;
+		while (node)
+		{
+			stack->head = node->next;
+			free (node);
+			node = stack->head;
+		}
+		stack->tail = NULL;
+		stack->size = 0;
 	}
-	stack->tail = NULL;
-	stack->size = 0;
 }
 
 t_node	*new_node(int nb, t_stack *stack)
