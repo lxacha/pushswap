@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:10:21 by leolefeb          #+#    #+#             */
-/*   Updated: 2026/11/27 21:49:25 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/28 02:30:13 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int     is_there_duplicates(t_stack *stack_a)
         }
         return (FALSE);
 }
-
 
 int	ft_strlen(char *a)
 {
@@ -114,7 +113,7 @@ int	skip_shit(char *argv)
 			return (TRUE);
 
 	}
-	return (TRUE);
+	return (2);
 }
 // parsing related skips initial bullshit and if not valid argument
 
@@ -204,34 +203,45 @@ char	*re_process(char *a)
 }
 
 //takes from where atoi stop and return rest of string
-void	from_args_to_list(char **argv, t_stack *stack)
+int	from_args_to_list(char **argv, t_stack *stack)
 {
 	int		index;
 	char	*saved;
+	char	*save_saved;
+	int	first_iteration_or_nah;
 
+	first_iteration_or_nah = TRUE;
 	index = 1;
 	while (argv[index])
 	{
 		if (skip_shit(argv[index]) == TRUE)
-		{
-			index++;
-			continue ;
-		}
+			return (TRUE);
 		if (ft_atoi(argv[index]) >= 2147483647 || ft_atoi(argv[index]) <= -2147483648)
-		{
-			index++;
-			continue;	
-		}
+			return (TRUE);
 		push_back(new_node(ft_atoi(argv[index]), stack), stack);
 		saved = re_process(argv[index]);
-		while (skip_shit(saved) != TRUE && ft_strlen(saved) != 0)
+		save_saved = saved;
+		
+		while (skip_shit(saved) != 2 && ft_strlen(saved) != 0)
 		{
 			if (skip_shit(saved) == TRUE)
-				break ;
+			{
+				free(save_saved);
+				return (TRUE) ;
+			}	
+			if (ft_atoi(saved) >= 2147483647 || ft_atoi(saved) <= -2147483648)
+			{
+				free(save_saved);
+				return (TRUE) ;
+			}
 			push_back(new_node(ft_atoi(saved), stack), stack);
+			free(save_saved);
+			save_saved = saved;
 			saved = re_process(saved);
-		}		
+			
+		}
 		index++;
+		free(save_saved);
 	}
 	get_rank(stack);
 }

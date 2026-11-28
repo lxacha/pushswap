@@ -6,7 +6,7 @@
 /*   By: timbert <timbert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:56:14 by timbert           #+#    #+#             */
-/*   Updated: 2026/11/27 21:52:41 by leolefeb         ###   ########.fr       */
+/*   Updated: 2026/11/28 00:36:23 by leolefeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int			how_many_args(char **argv);
 int			ft_strlen(char *a);
 int			atoi_stop(const char *a);
 char		*re_process(char *a);
-void		from_args_to_list(char **argv, t_stack *stack);
+int		from_args_to_list(char **argv, t_stack *stack);
 int             is_there_duplicates(t_stack *stack_a);
 void            error(char *a);
 
